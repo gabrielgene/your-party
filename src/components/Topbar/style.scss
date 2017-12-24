@@ -1,14 +1,16 @@
+@import "../../scss/_variables.scss";
+@import "../../scss/_typography.scss";
+
 .Topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: $spacer;
   width: 100%;
-  height: 56px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  height: $bar-spacer;
+  box-shadow: $box-shadow;
 
   &-title {
-    font-size: 24px;
-    font-family: Roboto;
+    @extend %text-bold-24;
   }
 }

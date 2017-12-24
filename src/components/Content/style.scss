@@ -1,0 +1,15 @@
+@import "../../scss/_variables.scss";
+@import "../../scss/_typography.scss";
+
+.Content {
+  padding: ($spacer * 16) 0 0 ($spacer * 13);
+  height: calc(100vh - 56px);
+
+  &-h1 {
+    @extend %text-bold-24;
+  }
+
+  &-h2 {
+    @extend %text-regular-18;
+  }
+}
