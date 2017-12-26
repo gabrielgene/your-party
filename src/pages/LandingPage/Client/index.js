@@ -1,11 +1,17 @@
 import React from 'react';
 import Topbar from '../../../components/Topbar';
 import Content from '../../../components/Content';
+import Form from '../../../components/Form';
+import { Grid } from 'semantic-ui-react';
+import './style.css';
 
 const Client = () => (
-  <div>
+  <div className="LandingPage-client">
     <Topbar />
-    <Content />
+    <div className="LandingPage-client-content-desktop">
+      <Content />
+      <Form.Client />
+    </div>
   </div>
 );
 

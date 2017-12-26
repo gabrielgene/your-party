@@ -3,10 +3,10 @@
 
 .Content {
   padding: ($spacer * 16) 0 0 ($spacer * 13);
-  height: calc(100vh - 56px);
+  width: 60%;
 
   &-h1 {
-    @extend %text-bold-24;
+    @extend %text-bold-32;
   }
 
   &-h2 {

@@ -1,0 +1,9 @@
+@import "../../../scss/_variables.scss";
+@import "../../../scss/_typography.scss";
+
+.Form-client {
+  display: flex;
+  justify-content: center;
+  padding-top: $spacer * 10;
+  width: 40%;
+}

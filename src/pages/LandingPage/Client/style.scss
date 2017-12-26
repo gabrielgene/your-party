@@ -1,0 +1,17 @@
+@import "../../../scss/_variables.scss";
+@import "../../../scss/_typography.scss";
+
+.LandingPage-client {
+  &-content {
+
+    &-desktop {
+      display: flex;
+      width: 100%;
+    }
+
+    &-mobile
+    .Form-client {
+      width: 100%;
+    }
+  }
+}
