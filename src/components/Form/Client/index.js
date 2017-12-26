@@ -1,54 +1,93 @@
-import React from 'react';
-import { Card, Form, Divider, Tab } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Tab } from 'semantic-ui-react';
+import Request from './Request';
+import Data from './Data';
 import './style.css';
 
-const services = [
-  { key: 'buffet-doces', text: 'Buffet de Doces', value: 'buffet-doces' },
-  { key: 'buffet-salgados', text: 'Buffet de Salgados', value: 'buffet-salgados' },
-  { key: 'org', text: 'Organização de eventos', value: 'org' },
-  { key: 'som', text: 'Som', value: 'som' },
-  { key: 'todos', text: 'Evento completo', value: 'todos' },
-]
+export default class Client extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      request: {
+        services: [],
+        amount: '',
+        when: '',
+        addInfo: '',
+      },
+      data: {
+        name: '',
+        place: '',
+        phone: '',
+        email: '',
+      },
+      activeIndex: 0,
+    }
+  }
 
-const ClientRequest = () => (
-  <Tab.Pane>
-    <Form>
-      <Form.Select
-        label="Serviços"
-        placeholder="Ex: Buffet de Salgados..."
-        options={services}
-        multiple
-      />
-      <Form.Input label="Quantidade de pessoas" type="number" placeholder="Ex: 150 pessoas" />
-      <Form.Input label="Para quando" placeholder="Ex: 27/12/2017" />
-      <Form.TextArea label="Informações adicionais" placeholder="Ex: Festa de 15 anos da minha filha." />
-      <Form.Button content="Solicitar Equipe" fluid primary />
-    </Form>
-  </Tab.Pane>
-);
+  handleChangeRequest = (e, { name, value }) => this.setState({
+    request: {
+      ...this.state.request,
+      [name]: value,
+    }
+  });
 
-const ClientData = () => (
-  <Tab.Pane>
-    <Form>
-      <Form.Input label="Nome" placeholder="Ex: João da Silva" />
-      <Form.Input label="Local" placeholder="Ex: Salvador - Ba" />
-      <Form.Input label="Telefone" placeholder="Ex: (99) 99999-9999" />
-      <Form.Input label="E-mail" placeholder="Ex; joao@gmail.com" />
-      <Form.Button content="Continuar" fluid primary />
-    </Form>
-  </Tab.Pane>
-);
+  handleChangeData = (e, { name, value }) => this.setState({
+    data: {
+      ...this.state.data,
+      [name]: value,
+    }
+  });
 
-const panes = [
-  { menuItem: 'Dados do evento', render: () => <ClientRequest /> },
-  { menuItem: 'Seus dados', render: () => <ClientData /> },
-]
+  handleSubmit = () => console.log(this.state);
 
+  handleSubmitNextIndex = () => this.setState({ activeIndex: 1 });
+  handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
 
-const Client = () => (
-  <div className="Form-client">
-    <Tab panes={panes} menu={{ secondary: true, pointing: true }} />
-  </div>
-);
+  render() {
+    const { request, data, activeIndex } = this.state;
+    const { services, amount, when, addInfo } = request;
+    const { name, place, phone, email } = data;
 
-export default Client;
+    const panes = [
+      {
+        menuItem: 'Seu evento', render: () => (
+          <Tab.Pane>
+            <Request
+              onChange={this.handleChangeRequest}
+              onSubmit={this.handleSubmitNextIndex}
+              services={services}
+              amount={amount}
+              when={when}
+              addInfo={addInfo}
+            />
+          </Tab.Pane>
+        )
+      },
+      {
+        menuItem: 'Seus dados', render: () => (
+          <Tab.Pane>
+            <Data
+              onChange={this.handleChangeData}
+              onSubmit={this.handleSubmit}
+              name={name}
+              place={place}
+              phone={phone}
+              email={email}
+            />
+          </Tab.Pane>
+        )
+      },
+    ]
+
+    return (
+      <div className="Form-client">
+        <Tab
+          panes={panes}
+          menu={{ attached: 'top' }}
+          activeIndex={activeIndex}
+          onTabChange={this.handleTabChange}
+        />
+      </div>
+    )
+  }
+}

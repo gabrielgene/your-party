@@ -2,8 +2,13 @@
 @import "../../../scss/_typography.scss";
 
 .Form-client {
-  display: flex;
   justify-content: center;
-  padding-top: $spacer * 10;
-  width: 40%;
+  padding: $spacer * 8 0 0 $spacer * 8;
+  width: 500px;
+
+  .top .item {
+    display: block !important;
+    width: 50%;
+    text-align: center;
+  }
 }
