@@ -45,7 +45,7 @@ export default class Request extends Component {
           value={addInfo}
         />
         <Form.Button
-          content="Solicitar equipe"
+          content="Continuar"
           fluid
           color="orange"
         />

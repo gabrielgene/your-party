@@ -9,7 +9,8 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.1"
+    "semantic-ui-react": "^0.77.1",
+    "slack-notify": "^0.1.6"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",

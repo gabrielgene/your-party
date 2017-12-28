@@ -2,25 +2,32 @@ import React, { Component } from 'react';
 import { Tab } from 'semantic-ui-react';
 import Request from './Request';
 import Data from './Data';
+import Done from '../Done';
+import { postRequest } from '../../utils';
 import './style.css';
+
+const defaultState = {
+  request: {
+    services: [],
+    amount: '',
+    when: '',
+    addInfo: '',
+  },
+  data: {
+    name: '',
+    place: '',
+    phone: '',
+    email: '',
+  },
+  activeIndex: 0,
+  done: false,
+}
 
 export default class Client extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      request: {
-        services: [],
-        amount: '',
-        when: '',
-        addInfo: '',
-      },
-      data: {
-        name: '',
-        place: '',
-        phone: '',
-        email: '',
-      },
-      activeIndex: 0,
+      ...defaultState,
     }
   }
 
@@ -38,13 +45,30 @@ export default class Client extends Component {
     }
   });
 
-  handleSubmit = () => console.log(this.state);
+  handleSubmit = async () => {
+    const state = {
+      request: this.state.request,
+      data: this.state.data,
+    }
+
+    const data = await postRequest(state);
+    console.log(data)
+    this.setState({
+      ...defaultState,
+      done: true,
+    });
+  }
+
+  handleNewRequest = () => this.setState({
+    activeIndex: 0,
+    done: false,
+  })
 
   handleSubmitNextIndex = () => this.setState({ activeIndex: 1 });
   handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
 
   render() {
-    const { request, data, activeIndex } = this.state;
+    const { done, request, data, activeIndex } = this.state;
     const { services, amount, when, addInfo } = request;
     const { name, place, phone, email } = data;
 
@@ -81,12 +105,16 @@ export default class Client extends Component {
 
     return (
       <div className="Form">
-        <Tab
-          panes={panes}
-          menu={{ attached: 'top' }}
-          activeIndex={activeIndex}
-          onTabChange={this.handleTabChange}
-        />
+        {done ?
+          <Done onNewRequest={this.handleNewRequest} />
+          :
+          <Tab
+            panes={panes}
+            menu={{ attached: 'top' }}
+            activeIndex={activeIndex}
+            onTabChange={this.handleTabChange}
+          />
+        }
       </div>
     )
   }
