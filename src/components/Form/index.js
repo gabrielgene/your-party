@@ -3,7 +3,7 @@ import { Tab } from 'semantic-ui-react';
 import Request from './Request';
 import Data from './Data';
 import Done from '../Done';
-import { postRequest } from '../../utils';
+// import { postRequest } from '../../utils';
 import './style.css';
 
 const defaultState = {
@@ -46,13 +46,13 @@ export default class Client extends Component {
   });
 
   handleSubmit = async () => {
-    const state = {
-      request: this.state.request,
-      data: this.state.data,
-    }
+    // const state = {
+    //   request: this.state.request,
+    //   data: this.state.data,
+    // }
+    // const data = await postRequest(state);
+    // console.log(data)
 
-    const data = await postRequest(state);
-    console.log(data)
     this.setState({
       ...defaultState,
       done: true,
@@ -74,7 +74,7 @@ export default class Client extends Component {
 
     const panes = [
       {
-        menuItem: 'Seu evento', render: () => (
+        menuItem: '1. Seu evento', render: () => (
           <Tab.Pane>
             <Request
               onChange={this.handleChangeRequest}
@@ -88,7 +88,7 @@ export default class Client extends Component {
         )
       },
       {
-        menuItem: 'Seus dados', render: () => (
+        menuItem: '2. Seus dados', render: () => (
           <Tab.Pane>
             <Data
               onChange={this.handleChangeData}
@@ -110,9 +110,9 @@ export default class Client extends Component {
           :
           <Tab
             panes={panes}
-            menu={{ attached: 'top' }}
+            // menu={{ attached: 'top' }}
             activeIndex={activeIndex}
-            onTabChange={this.handleTabChange}
+            // onTabChange={this.handleTabChange}
           />
         }
       </div>

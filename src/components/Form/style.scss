@@ -4,10 +4,26 @@
   width: 500px;
   padding-right: $spacer * 4;
 
-  .top .item {
+  .tabular .item {
     display: block !important;
     width: 50%;
     text-align: center;
+    cursor: default !important;
+    background-color: #e7e7e7 !important;
+    border-radius: 0px !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    color: rgba(0,0,0,.87) !important;
+    font-weight: 400 !important;
+  }
+
+  .tabular .active {
+    background-color: white !important;
+    border-radius: 0px !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    color: rgba(0,0,0,.87) !important;
+    font-weight: 400 !important;
   }
 }
 

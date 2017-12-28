@@ -1,4 +1,5 @@
 @import "../../scss/_variables.scss";
+@import "../../scss/_typography.scss";
 
 .body {
   background-color: $red-body;
@@ -7,6 +8,13 @@
 .LandingPage {
   &-content {
     display: flex;
+
+    &-secure {
+      @extend %text-light-24;
+
+      font-family: Ubuntu, sans-serif;
+      color: white;
+    }
   }
 }
 
