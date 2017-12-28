@@ -1,15 +1,3 @@
-const handleHttpStatus = res => {
-  if (res.status >= 200 && res.status < 300) {
-    return res.json();
-  }
-  throw res;
-};
-
-const createErrorHandler = defaultValue => res => {
-  console.error('request failed', res);
-  return defaultValue;
-};
-
 const payload = {
   channel: "#leads_test",
   username: "webhookbot",
@@ -20,9 +8,17 @@ const payload = {
 const url = 'https://your-party-api.herokuapp.com/';
 
 export const postRequest = (data) => {
-  payload['text'] = data;
-  console.log('HEREE');
-  console.log(payload);
+  const text =
+    `services: ${data.request.services}
+amount: ${data.request.amount}
+when: ${data.request.when}
+addInfo: ${data.request.addInfo}
+name: ${data.data.name}
+place: ${data.data.place}
+phone: ${data.data.phone}
+email: ${data.data.email}
+`;
+  payload['text'] = '```' + text + '```';
   return fetch(url, {
     method: 'post',
     headers: {
@@ -30,7 +26,5 @@ export const postRequest = (data) => {
       'Accept': 'application/json',
     },
     body: JSON.stringify(payload),
-  }).then(handleHttpStatus).catch(createErrorHandler({}));
+  });
 }
-
-

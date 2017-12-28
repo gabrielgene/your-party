@@ -45,12 +45,12 @@ export default class Client extends Component {
     }
   });
 
-  handleSubmit = async () => {
+  handleSubmit = () => {
     const state = {
       request: this.state.request,
       data: this.state.data,
     }
-    const data = await postRequest(state);
+    postRequest(state);
 
     this.setState({
       ...defaultState,
