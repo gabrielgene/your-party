@@ -51,6 +51,10 @@ app.post('/', function (req, res) {
   res.status(200).send('ok');
 });
 
+app.get('/', function(req, res) {
+  res.status(200).send('Oi :)');
+})
+
 app.listen(PORT, function () {
   console.log('service RESTful API serer started on: ' + PORT);
 });
