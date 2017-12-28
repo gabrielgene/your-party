@@ -1,7 +1,11 @@
-import { Component } from 'react';
-import Client from './Client';
+import React from 'react';
+import Topbar from '../../components/Topbar';
+import './style.css';
 
-export default class LandingPage extends Component {
-  static Client = Client;
-}
+const LandingPage = () => (
+  <div className="LandingPage">
+    <Topbar />
+  </div>
+);
 
+export default LandingPage;
