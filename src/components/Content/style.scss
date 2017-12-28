@@ -2,14 +2,18 @@
 @import "../../scss/_typography.scss";
 
 .Content {
-  padding: ($spacer * 16) 0 0 ($spacer * 13);
-  width: 60%;
+  color: white;
+  padding: 2.8em;
 
   &-h1 {
-    @extend %text-bold-32;
+    @extend %text-bold-40;
+
+    font-family: Ubuntu, sans-serif;
   }
 
   &-h2 {
-    @extend %text-regular-18;
+    @extend %text-light-24;
+
+    font-family: Ubuntu, sans-serif;
   }
 }

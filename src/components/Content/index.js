@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 const title = 'Faça o seu evento acontecer agora!';
-const subTitle = 'Temos as melhores equipes de buffet, som e organização para o seu evento.';
+const subTitle = 'Temos as melhores equipes de buffet e arrumação para o seu evento.';
 
 const Content = () => (
   <div className="Content">
