@@ -36,9 +36,9 @@ export default class Data extends Component {
           value={email}
         />
         <Form.Button
-          content="Continuar"
+          content="Solicitar equipe"
           fluid
-          primary
+          color="orange"
         />
       </Form>
     )

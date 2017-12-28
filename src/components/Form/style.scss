@@ -1,14 +1,19 @@
 @import "../../scss/_variables.scss";
-@import "../../scss/_typography.scss";
 
-.Form-client {
-  justify-content: center;
-  padding: $spacer * 8 0 0 $spacer * 8;
+.Form {
   width: 500px;
+  padding-right: $spacer * 4;
 
   .top .item {
     display: block !important;
     width: 50%;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: $break-large) {
+  .Form {
+    width: 100%;
+    padding: $spacer * 4;
   }
 }

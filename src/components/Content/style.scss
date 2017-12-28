@@ -17,3 +17,9 @@
     font-family: Ubuntu, sans-serif;
   }
 }
+
+@media screen and (max-width: $break-large) {
+  .Content {
+    text-align: center;
+  }
+}

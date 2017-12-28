@@ -80,7 +80,7 @@ export default class Client extends Component {
     ]
 
     return (
-      <div className="Form-client">
+      <div className="Form">
         <Tab
           panes={panes}
           menu={{ attached: 'top' }}
