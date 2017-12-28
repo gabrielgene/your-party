@@ -24,34 +24,25 @@ app.all('/*', cors(), function (req, res, next) {
 
 const url = 'https://hooks.slack.com/services/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';
 
-const payload = {
-  channel: "#leads_test",
-  username: "webhookbot",
-  text: "test",
-  icon_emoji: ":moneybag:"
-}
-
 const headers = {
   'Content-Type': 'application/json'
 }
 
-const options = {
-  url: url,
-  method: 'POST',
-  headers: headers,
-  form: JSON.stringify(payload),
-}
-
-
 app.post('/', function (req, res) {
+
+  const options = {
+    url: url,
+    method: 'POST',
+    headers: headers,
+    form: JSON.stringify(req.body),
+  }
+
   request(options, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-    }
   });
   res.status(200).send('ok');
 });
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.status(200).send('Oi :)');
 })
 

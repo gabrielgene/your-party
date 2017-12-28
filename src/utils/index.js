@@ -10,19 +10,19 @@ const createErrorHandler = defaultValue => res => {
   return defaultValue;
 };
 
-const payload =
-  {
-    channel: "#leads_test",
-    username: "webhookbot",
-    text: "",
-    icon_emoji: ":moneybag:"
-  }
+const payload = {
+  channel: "#leads_test",
+  username: "webhookbot",
+  text: "",
+  icon_emoji: ":moneybag:"
+}
 
-export const postRequest = (data, isProduction) => {
-  if (isProduction) {
-    payload['channel'] = '#leads';
-  }
+const url = 'https://your-party-api.herokuapp.com/';
+
+export const postRequest = (data) => {
   payload['text'] = data;
+  console.log('HEREE');
+  console.log(payload);
   return fetch(url, {
     method: 'post',
     headers: {
