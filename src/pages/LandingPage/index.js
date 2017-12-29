@@ -10,7 +10,6 @@ const LandingPage = () => (
     <div className="LandingPage-content">
       <Content />
       <Form />
-      {/* <div className="LandingPage-content-secure">Orçamento grátis e seguro</div> */}
     </div>
   </div>
 );

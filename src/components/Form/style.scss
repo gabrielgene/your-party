@@ -1,8 +1,19 @@
 @import "../../scss/_variables.scss";
+@import "../../scss/_typography.scss";
 
 .Form {
   width: 500px;
   padding-right: $spacer * 4;
+
+  &-secure {
+    @extend %text-bold-18;
+
+    font-family: Ubuntu, sans-serif;
+    color: white;
+    margin-top: $spacer;
+    display: flex;
+    align-items: center;
+  }
 
   .tabular .item {
     display: block !important;
@@ -13,7 +24,7 @@
     border-radius: 0px !important;
     border-top-left-radius: 3px !important;
     border-top-right-radius: 3px !important;
-    color: rgba(0,0,0,.87) !important;
+    color: rgba(0, 0, 0, 0.87) !important;
     font-weight: 400 !important;
   }
 
@@ -22,7 +33,7 @@
     border-radius: 0px !important;
     border-top-left-radius: 3px !important;
     border-top-right-radius: 3px !important;
-    color: rgba(0,0,0,.87) !important;
+    color: rgba(0, 0, 0, 0.87) !important;
     font-weight: 400 !important;
   }
 }

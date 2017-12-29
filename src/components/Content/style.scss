@@ -5,21 +5,27 @@
   color: white;
   padding: 2.8em;
 
-  &-h1 {
+  &-title {
     @extend %text-bold-40;
 
     font-family: Ubuntu, sans-serif;
   }
 
-  &-h2 {
-    @extend %text-light-24;
+  &-topics {
+    @extend %text-light-20;
 
     font-family: Ubuntu, sans-serif;
+
+    .icon {
+      margin-right: $spacer;
+    }
   }
 }
 
 @media screen and (max-width: $break-large) {
   .Content {
-    text-align: center;
+    &-title {
+      text-align: center;
+    }
   }
 }

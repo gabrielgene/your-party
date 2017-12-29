@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tab } from 'semantic-ui-react';
+import { Tab, Icon } from 'semantic-ui-react';
 import Request from './Request';
 import Data from './Data';
 import Done from '../Done';
@@ -107,10 +107,23 @@ export default class Client extends Component {
         {done ?
           <Done onNewRequest={this.handleNewRequest} />
           :
-          <Tab
-            panes={panes}
-            activeIndex={activeIndex}
-          />
+          <div>
+            <Tab
+              panes={panes}
+              activeIndex={activeIndex}
+            />
+            {/* checkmark
+            check circle */}
+            <div className="Form-secure">
+              <Icon
+                name="checkmark"
+                circular
+                size="small"
+                color="green"
+              />
+              Orçamento grátis e seguro.
+            </div>
+          </div>
         }
       </div>
     )
