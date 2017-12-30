@@ -13,6 +13,7 @@ export default class Data extends Component {
           onChange={onChange}
           name="name"
           value={name}
+          required
         />
         <Form.Input
           label="Local"
@@ -20,6 +21,7 @@ export default class Data extends Component {
           onChange={onChange}
           name="place"
           value={place}
+          required
         />
         <Form.Input
           label="Telefone"
@@ -27,6 +29,7 @@ export default class Data extends Component {
           onChange={onChange}
           name="phone"
           value={phone}
+          required
         />
         <Form.Input
           label="E-mail"
@@ -34,6 +37,7 @@ export default class Data extends Component {
           onChange={onChange}
           name="email"
           value={email}
+          required
         />
         <Form.Button
           content="Solicitar equipe"
