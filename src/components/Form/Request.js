@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react';
 const servicesOptions = [
   { key: 'buffet-doces', text: 'Buffet de Doces', value: 'buffet-doces' },
   { key: 'buffet-salgados', text: 'Buffet de Salgados', value: 'buffet-salgados' },
-  { key: 'arr', text: 'Arrumação', value: 'arr' },
+  { key: 'arr', text: 'Arrumação', value: 'arrumacao' },
 ];
 
 export default class Request extends Component {
@@ -36,6 +36,7 @@ export default class Request extends Component {
           onChange={onChange}
           name="when"
           value={when}
+          type="date"
         />
         <Form.TextArea
           label="Informações adicionais"
