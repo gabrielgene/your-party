@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
+import InputMask from 'react-input-mask';
 
 const servicesOptions = [
   { key: 'buffet-doces', text: 'Buffet de Doces', value: 'buffet-doces' },
@@ -32,12 +33,15 @@ export default class Request extends Component {
         />
         <Form.Input
           label="Para quando"
-          placeholder="Ex: 27/12/2017"
-          onChange={onChange}
-          name="when"
-          value={when}
-          type="date"
-        />
+        >
+          <InputMask
+            onChange={onChange}
+            name="when"
+            value={when}
+            mask="99/99/9999"
+            placeholder="Ex: 27/12/2017"
+          />
+        </Form.Input>
         <Form.TextArea
           label="Informações adicionais"
           placeholder="Ex: Festa de 15 anos da minha filha."

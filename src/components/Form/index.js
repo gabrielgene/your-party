@@ -31,19 +31,47 @@ export default class Client extends Component {
     }
   }
 
-  handleChangeRequest = (e, { name, value }) => this.setState({
-    request: {
-      ...this.state.request,
-      [name]: value,
-    }
-  });
+  handleChangeRequest = (e, target) => {
+    if (target === undefined) {
+      const { name, value } = e.target;
+      this.setState({
+        request: {
+          ...this.state.request,
+          [name]: value,
+        }
+      });
 
-  handleChangeData = (e, { name, value }) => this.setState({
-    data: {
-      ...this.state.data,
-      [name]: value,
+    } else {
+      const { name, value } = target;
+      this.setState({
+        request: {
+          ...this.state.request,
+          [name]: value,
+        }
+      });
     }
-  });
+  }
+
+  handleChangeData = (e, target) => {
+    if (target === undefined) {
+      const { name, value } = e.target;
+      this.setState({
+        data: {
+          ...this.state.data,
+          [name]: value,
+        },
+      });
+
+    } else {
+      const { name, value } = target;
+      this.setState({
+        data: {
+          ...this.state.data,
+          [name]: value,
+        },
+      });
+    }
+  }
 
   handleSubmit = () => {
     const state = {
@@ -112,8 +140,6 @@ export default class Client extends Component {
               panes={panes}
               activeIndex={activeIndex}
             />
-            {/* checkmark
-            check circle */}
             <div className="Form-secure">
               <Icon
                 name="checkmark"
