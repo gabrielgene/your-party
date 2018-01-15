@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
+import InputMask from 'react-input-mask';
 
 export default class Data extends Component {
   render() {
@@ -16,20 +17,24 @@ export default class Data extends Component {
           required
         />
         <Form.Input
+          label="Telefone"
+          required
+        >
+          <InputMask
+            onChange={onChange}
+            name="phone"
+            value={phone}
+            mask="(99) 99999-9999"
+            placeholder="Ex: (71) 99999-9999"
+            required
+          />
+        </Form.Input>
+        <Form.Input
           label="Local"
           placeholder="Ex: Salvador - Ba"
           onChange={onChange}
           name="place"
           value={place}
-          required
-        />
-        <Form.Input
-          label="Telefone"
-          placeholder="Ex: (99) 99999-9999"
-          onChange={onChange}
-          name="phone"
-          value={phone}
-          required
         />
         <Form.Input
           label="E-mail"
@@ -37,11 +42,11 @@ export default class Data extends Component {
           onChange={onChange}
           name="email"
           value={email}
-          required
         />
         <Form.Button
-          content="Solicitar equipe"
+          content="Solicitar orçamento grátis"
           fluid
+          size="large"
           color="orange"
         />
       </Form>

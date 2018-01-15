@@ -5,7 +5,6 @@ import InputMask from 'react-input-mask';
 const servicesOptions = [
   { key: 'buffet-doces', text: 'Buffet de Doces', value: 'buffet-doces' },
   { key: 'buffet-salgados', text: 'Buffet de Salgados', value: 'buffet-salgados' },
-  { key: 'arr', text: 'Arrumação', value: 'arrumacao' },
 ];
 
 export default class Request extends Component {
@@ -26,7 +25,7 @@ export default class Request extends Component {
         <Form.Input
           label="Quantidade de pessoas"
           type="number"
-          placeholder="Ex: 150 pessoas"
+          placeholder="Ex: 150"
           onChange={onChange}
           name="amount"
           value={amount}
@@ -52,6 +51,7 @@ export default class Request extends Component {
         <Form.Button
           content="Continuar"
           fluid
+          size="large"
           color="orange"
         />
       </Form>

@@ -3,9 +3,9 @@ import { Icon } from 'semantic-ui-react';
 import './style.css';
 
 const title = 'Faça o seu evento acontecer agora!';
-const topic1 = 'Temos equipes qualificadas de buffet e arrumação para o seu evento.';
-const topic2 = 'Degustação do buffet e mostruário da arrumação sem compromisso.';
-const topic3 = 'Preço de serviço dentro do preço de mercado.';
+const topic1 = 'Profissionais qualificados para o seu evento.';
+const topic2 = 'Degustação de buffet sem compromisso.';
+const topic3 = 'Valor de serviço dentro do preço de mercado.';
 
 const Content = () => (
   <div className="Content">
